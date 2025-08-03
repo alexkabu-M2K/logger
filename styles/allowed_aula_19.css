@@ -16,11 +16,31 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #007;   
+    background-color: rgb(24, 74, 128);   
     color: #fff
 }
 h1 {
     font-size: 40px;
     margin-bottom: 20px;
     
+}
+
+p {
+    font-size: 20px;
+    }
+
+button {
+    width: 250px;
+    height: 75px;
+    border:.25px solid #CCC;
+    border-radius: 15px;
+    background-color: rgb(7, 67, 6);
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+
+button:hover {
+    background-color: rgb(18, 156, 45);
 }

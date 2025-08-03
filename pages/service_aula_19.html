@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Consulta de Log - Contabilidade</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Consulta de Log - Sistema de Contabilidade</h1>
+
+    <section class="form-section">
+      <h2>Inserir Log</h2>
+      <input type="text" id="usuario" placeholder="Usuário" />
+      <input type="text" id="acao" placeholder="Ação realizada" />
+      <input type="datetime-local" id="data" />
+      <button onclick="inserirLog()">Inserir</button>
+    </section>
+
+    <section class="form-section">
+      <h2>Buscar Log</h2>
+      <input type="text" id="busca" placeholder="Buscar por usuário ou ação" />
+      <button onclick="buscarLog()">Buscar</button>
+    </section>
+
+    <section>
+      <h2>Logs Encontrados</h2>
+      <ul id="resultadoLogs"></ul>
+    </section>
+
+    <section>
+      <h2>Todos os Logs</h2>
+      <button onclick="listarLogs()">Atualizar Lista</button>
+      <ul id="todosLogs"></ul>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+<!--
+<script>
+  const logs = [];
+
+  function inserirLog() {
+    const usuario = document.getElementById('usuario').value;
+    const acao = document.getElementById('acao').value;
+    const data = document.getElementById('data').value;
+
+    if (!usuario || !acao || !data) {
+      alert('Por favor, preencha todos os campos.');
+      return;
+    }
+
+    const log = { usuario, acao, data };
+    logs.push(log);
+    alert('Log inserido com sucesso!');
+    listarLogs();
+  }
+
+  function buscarLog() {
+    const busca = document.getElementById('busca').value.toLowerCase();
+    const resultado = logs.filter(log => 
+      log.usuario.toLowerCase().includes(busca) || 
+      log.acao.toLowerCase().includes(busca)
+    );
+
+    exibirLogs(resultado, 'resultadoLogs');
+  }
+
+  function listarLogs() {
+    exibirLogs(logs, 'todosLogs');
+  }
+
+  function exibirLogs(lista, elementoId) {
+    const ul = document.getElementById(elementoId);
+    ul.innerHTML = '';
+    
+    lista.forEach(log => {
+      const li = document.createElement('li');
+      li.textContent = `${log.data} - ${log.usuario}: ${log.acao}`;
+      ul.appendChild(li);
+    });
+  }
+  -->
