@@ -56,3 +56,12 @@ function buscarLog() {
 
 // Inicializa com a lista carregada
 window.onload = listarLogs;
+
+document.getElementById("btn-sair").addEventListener("click", function () {
+  const confirmacao = confirm("Deseja realmente sair do sistema?");
+  if (confirmacao) {
+    // Logout: redirecionar e limpar sessão
+    alert("Você saiu do sistema.");
+    window.location.href = "../index_aula_19.html"; // Página Inicial do System Logger
+  }
+});

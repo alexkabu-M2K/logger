@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Consulta de Log - Contabilidade</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../styles/service_aula_19.css" />
 </head>
 <body>
   <div class="container">
-    <h1>Consulta de Log - Sistema de Contabilidade</h1>
+    <h1> System Logger - Painel de Serviço</h1>
 
     <section class="form-section">
       <h2>Inserir Log</h2>
@@ -34,54 +34,23 @@
       <button onclick="listarLogs()">Atualizar Lista</button>
       <ul id="todosLogs"></ul>
     </section>
+
+    <section>
+      <h2>Excluir Log</h2>
+      <input type="text" id="idExcluir" placeholder="ID do Log a ser excluído" />
+      <button onclick="excluirLog()">Excluir</button>
+      <p class="error" id="errorMessage"></p>
+      <p class="success" id="successMessage"></p>
+    </section>
+ 
   </div>
 
-  <script src="script.js"></script>
+  <br>
+
+  <div class="container">
+    <button id="btn-sair">Sair do System Logger</button>
+  </div>
+
+  <script src="../scripts/service_aula_19.js"></script>
 </body>
 </html>
-
-<!--
-<script>
-  const logs = [];
-
-  function inserirLog() {
-    const usuario = document.getElementById('usuario').value;
-    const acao = document.getElementById('acao').value;
-    const data = document.getElementById('data').value;
-
-    if (!usuario || !acao || !data) {
-      alert('Por favor, preencha todos os campos.');
-      return;
-    }
-
-    const log = { usuario, acao, data };
-    logs.push(log);
-    alert('Log inserido com sucesso!');
-    listarLogs();
-  }
-
-  function buscarLog() {
-    const busca = document.getElementById('busca').value.toLowerCase();
-    const resultado = logs.filter(log => 
-      log.usuario.toLowerCase().includes(busca) || 
-      log.acao.toLowerCase().includes(busca)
-    );
-
-    exibirLogs(resultado, 'resultadoLogs');
-  }
-
-  function listarLogs() {
-    exibirLogs(logs, 'todosLogs');
-  }
-
-  function exibirLogs(lista, elementoId) {
-    const ul = document.getElementById(elementoId);
-    ul.innerHTML = '';
-    
-    lista.forEach(log => {
-      const li = document.createElement('li');
-      li.textContent = `${log.data} - ${log.usuario}: ${log.acao}`;
-      ul.appendChild(li);
-    });
-  }
-  -->
