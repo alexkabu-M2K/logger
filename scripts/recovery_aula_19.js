@@ -1,29 +1,39 @@
-// Código para o script de Login - Aula 19 do Curso Full Stack 2025
-// Este script é responsável por gerenciar o login do usuário
+// Código para a recuperação de Login - Aula 19 do Curso Full Stack 2025
+// Este script é responsável por gerenciar a recuperação de senha do usuário
 
-var login = document.getElementById("login");
+function confirmarSenha() {
+  const novaSenha = document.getElementById('novaSenha').value;
+  const confirmaSenha = document.getElementById('confirmaSenha').value;
+  const mensagemErro = document.getElementById('mensagemErro');
 
-login.addEventListener("click", function() {
+  sessionStorage.setItem("novaSenha", novaSenha);
+  sessionStorage.setItem("confirmaSenha", confirmaSenha);
 
-    // Obtém os valores dos campos de entrada de usuário e senha
-    var user = document.getElementById("userLogin").value;
-    var password = document.getElementById("passwordLogin").value;
+  if (novaSenha !== confirmaSenha) {
+    alert("As senhas não coincidem!");
+    return;
 
-    // Obtém os dados do usuário e senha registrados no sessionStorage
-    var userRegister = sessionStorage.getItem("user");
-    var passwordRegister = sessionStorage.getItem("password");
+  } else {
+    mensagemErro.textContent = "";
+    alert("Senha alterada com sucesso!");
 
-    // Verifica se o usuário e a senha correspondem aos dados registrados
-    if (user === userRegister && password === passwordRegister) {
-        // Exibe uma mensagem de sucesso
-        alert("Login realizado com sucesso!");
-        // Redireciona para a página principal após o login
-        window.location.href = "../pages/allowed_aula_19.html";
+    sessionStorage.setItem("password", novaSenha);
 
-        return;
-    } 
-    alert("Usuário ou senha incorretos.");
-    // Limpa os campos de entrada
-    document.getElementById("userLogin").value = "";
-    document.getElementById("passwordLogin").value = "";
-});
+    // Redireciona para a página de Login
+    window.location.href = "../pages/login_aula_19.html";
+
+    // Limpa os dados de sessão relacionados à senha
+    sessionStorage.removeItem("novaSenha");
+    sessionStorage.removeItem("confirmaSenha");
+
+    document.getElementById("formSenha").reset();
+
+    return;
+  }
+}
+
+function cancelarOperacao() {
+  window.location.href = "../index_aula_19.html"; // Redireciona para a página inicial
+}
+document.getElementById('login').addEventListener('click', confirmarSenha);
+document.getElementById('cancel').addEventListener('click', cancelarOperacao);

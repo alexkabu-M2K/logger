@@ -3,23 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/form_aula_19.css">
+    <link rel="stylesheet" href="../styles/recovery_aula_19.css">
     <title> Recuperação de Senha</title>
 </head>
-<body>
 
-    <h1> System Logger (SysLog) </h1><br>
-    <h2> Recuperação/Redefinição de Senha </h2><br>
-    <p> Para alterar sua senha, preencha os campos abaixo. </p><br>
-    <form>
-        <div class="inputs">
-            <input type="password" id="passwordLogin_origin" placeholder="Nova Senha" required>
-            <input type="password" id="passwordLogin_confirm" placeholder="Confirme a Senha" required>
-        </div>
-        <button type="button" id="login"> Recuperar </button>
-        <button type="button" id="cancel"> Cancelar </button>
+<body>  
+
+    <div class="container">
+    <h1> System Logger (SysLog) </h1>
+    <h2> Recuperação/Redefinição de Senha </h2>
+    <p> Para alterar sua senha, preencha os campos abaixo: </p>
+    
+    <form id="formSenha">
+      <label for="usuario">Usuário:</label>
+      <input type="text" id="usuario" name="usuario" required>
+
+      <label for="novaSenha">Nova Senha:</label>
+      <input type="password" id="novaSenha" name="novaSenha" required>
+
+      <label for="confirmaSenha">Confirme a Nova Senha:</label>
+      <input type="password" id="confirmaSenha" name="confirmaSenha" required>
+
+      <p id="mensagemErro" class="erro"></p>
+
+      <div class="botoes">
+        <button type="button" class="btn verde" id="login">Confirmar</button>
+        <button type="reset" class="btn laranja">Limpar Campos</button>
+        <button type="button" class="btn vermelho" id="cancel">Cancelar</button>
+      </div>
     </form>
-    <script src="../scripts/recovery_aula_19.js"></script>
+  </div>
 
+  <script src="../scripts/recovery_aula_19.js"></script>
 </body>
 </html>
