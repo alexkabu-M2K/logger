@@ -1,67 +1,75 @@
-function inserirLog() {
-  const usuario = document.getElementById('usuario').value.trim();
-  const acao = document.getElementById('acao').value.trim();
-  const data = document.getElementById('data').value;
+let logs = [];
 
-  if (!usuario || !acao || !data) {
-    alert("Preencha todos os campos!");
+function inserirLog() {
+  const nome = document.getElementById("inputNome").value.trim();
+  const acao = document.getElementById("inputAcao").value.trim();
+  const dataHora = document.getElementById("inputDataHora").value.trim();
+
+  if (!nome || !acao || !dataHora) {
+    alert("Por favor, preencha todos os campos.");
     return;
   }
 
-  const log = { usuario, acao, data };
-  const logs = JSON.parse(localStorage.getItem('logs') || '[]');
-  logs.push(log);
-  localStorage.setItem('logs', JSON.stringify(logs));
-
+  logs.push({ nome, acao, dataHora });
   alert("Log inserido com sucesso!");
-  document.getElementById('usuario').value = '';
-  document.getElementById('acao').value = '';
-  document.getElementById('data').value = '';
-  listarLogs();
+  limparCampos();
+  atualizarLista();
 }
 
-function listarLogs() {
-  const logs = JSON.parse(localStorage.getItem('logs') || '[]');
-  const ul = document.getElementById('todosLogs');
-  ul.innerHTML = '';
-  logs.forEach(log => {
-    const li = document.createElement('li');
-    li.textContent = `${log.usuario} - ${log.acao} - ${new Date(log.data).toLocaleString()}`;
-    ul.appendChild(li);
-  });
+function limparCampos() {
+  document.getElementById("inputNome").value = '';
+  document.getElementById("inputAcao").value = '';
+  document.getElementById("inputDataHora").value = '';
 }
 
 function buscarLog() {
-  const termo = document.getElementById('busca').value.toLowerCase();
-  const logs = JSON.parse(localStorage.getItem('logs') || '[]');
-  const resultados = logs.filter(log =>
-    log.usuario.toLowerCase().includes(termo) ||
-    log.acao.toLowerCase().includes(termo)
+  const termo = document.getElementById("inputBusca").value.toLowerCase();
+  const resultados = logs.filter(log => 
+    log.nome.toLowerCase().includes(termo) || 
+    log.email.toLowerCase().includes(termo)
   );
 
-  const ul = document.getElementById('resultadoLogs');
-  ul.innerHTML = '';
+  exibirResultados(resultados);
+}
 
-  if (resultados.length === 0) {
-    ul.innerHTML = '<li>Nenhum log encontrado.</li>';
+function exibirResultados(lista) {
+  const divResultados = document.getElementById("listaLogs");
+  divResultados.innerHTML = "";
+
+  if (lista.length === 0) {
+    divResultados.innerHTML = "<p>Nenhum log encontrado.</p>";
     return;
   }
 
-  resultados.forEach(log => {
-    const li = document.createElement('li');
-    li.textContent = `${log.usuario} - ${log.acao} - ${new Date(log.data).toLocaleString()}`;
-    ul.appendChild(li);
+  lista.forEach((log, index) => {
+    const div = document.createElement("div");
+    div.className = "log-item";
+    div.innerHTML = `
+      <span>${log.nome} - ${log.acao} - ${log.dataHora}</span>
+      <button class="excluir" onclick="excluirLog(${index})">Excluir</button>
+    `;
+    divResultados.appendChild(div);
   });
 }
 
-// Inicializa com a lista carregada
-window.onload = listarLogs;
-
-document.getElementById("btn-sair").addEventListener("click", function () {
-  const confirmacao = confirm("Deseja realmente sair do sistema?");
-  if (confirmacao) {
-    // Logout: redirecionar e limpar sessão
-    alert("Você saiu do sistema.");
-    window.location.href = "../index_aula_19.html"; // Página Inicial do System Logger
+function excluirLog(index) {
+  const confirmar = confirm("Tem certeza que deseja excluir este log?");
+  if (confirmar) {
+    logs.splice(index, 1);
+    atualizarLista();
   }
-});
+}
+
+function limparResultados() {
+  document.getElementById("inputBusca").value = '';
+  document.getElementById("listaLogs").innerHTML = '';
+}
+
+function atualizarLista() {
+  exibirResultados(logs);
+}
+
+function sairDoSistema() {
+  window.location.href = "../index_aula_19.html"; // Retorna ao menu principal
+  alert("Você saiu do System Logger.");
+}

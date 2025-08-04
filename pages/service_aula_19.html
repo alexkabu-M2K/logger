@@ -1,55 +1,48 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Consulta de Log - Contabilidade</title>
-  <link rel="stylesheet" href="../styles/service_aula_19.css" />
+  <meta charset="UTF-8">
+  <title>Consulta de Log - system Logger</title>
+  <link rel="stylesheet" href="../styles/service_aula_19.css">
 </head>
 <body>
   <div class="container">
-    <h1> System Logger - Painel de Serviço</h1>
+    <h1> System Logger - Painel de Serviço </h1><br>
 
-    <section class="form-section">
-      <h2>Inserir Log</h2>
-      <input type="text" id="usuario" placeholder="Usuário" />
-      <input type="text" id="acao" placeholder="Ação realizada" />
-      <input type="datetime-local" id="data" />
+    <div class="form-section">
+        <h2>Inserir Log</h2>
+      <input type="text" id="inputNome" placeholder="Usuário (ID)">
+      <input type="text" id="inputAcao" placeholder="Ação">
+      <input type="datetime-local" id="inputDataHora" placeholder="Data e Hora">
       <button onclick="inserirLog()">Inserir</button>
-    </section>
+      <button onclick="limparCampos()">Limpar Campos</button>
+    </div>
 
-    <section class="form-section">
+    <div class="form-section">
       <h2>Buscar Log</h2>
-      <input type="text" id="busca" placeholder="Buscar por usuário ou ação" />
+      <input type="text" id="inputBusca" placeholder="Buscar por usuário (ID) ou ação">
       <button onclick="buscarLog()">Buscar</button>
-    </section>
+      <button onclick="limparResultados()">Limpar Resultados</button>
+    </div>
 
-    <section>
-      <h2>Logs Encontrados</h2>
-      <ul id="resultadoLogs"></ul>
-    </section>
+    <div class="form-section">
+      <h2>Apagar Log</h2>
+      <input type="text" id="inputApagar" placeholder="ID do Log a ser apagado">
+      <button onclick="apagarLog()">Apagar</button>
+      <button onclick="limparCampos()">Limpar Campos</button>
+    </div>
 
-    <section>
-      <h2>Todos os Logs</h2>
-      <button onclick="listarLogs()">Atualizar Lista</button>
-      <ul id="todosLogs"></ul>
-    </section>
-
-    <section>
-      <h2>Excluir Log</h2>
-      <input type="text" id="idExcluir" placeholder="ID do Log a ser excluído" />
-      <button onclick="excluirLog()">Excluir</button>
-      <p class="error" id="errorMessage"></p>
-      <p class="success" id="successMessage"></p>
-    </section>
- 
-  </div>
-
-  <br>
-
-  <div class="container">
-    <button id="btn-sair">Sair do System Logger</button>
-  </div>
+    <!-- Logs recentes serão exibidos aqui -->
+    <div class="container">
+        <h2>Logs Recentes</h2>
+        <div class="resultados" id="listaLogs">
+       </div>
+        <div id="logsRecentes"></div>
+    </div>
+    
+    <div class="sair-section">
+        <button class="sair" onclick="sairDoSistema()">Sair do System Logger</button>
+    </div>
 
   <script src="../scripts/service_aula_19.js"></script>
 </body>
