@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/form_aula_19.css">
-    <title> Entrada</title>
+    <title> Tela Login </title>
 </head>
 <body>
+    <h1> System Logger (SysLog) </h1><br>
+    <h2> Efetue o seu Login para acessar </h2>
+    <br>
     <form>
         <div class="inputs">
             <input type="text" id="userLogin" placeholder="Usuário" required>
             <input type="password" id="passwordLogin" placeholder="Senha" required>
         </div>
         <button type="button" id="login"> Entrar</button>
-        <!-- <button type="button" id="cancel"> Cancelar</button> -->
-        <div class="sair-section">
+        <button type="reset" id="cancel"> Limpar Campos</button>
         <button class="sair" onclick="sairDoSistema()">Cancelar</button>
-        </div>
+        <div class="error" id="errorMessage"></div>
+        <div class="success" id="successMessage"></div>
 
         <div class ="smalls">
             <small> Esqueceu a Senha? Recupere <a href="./recovery_aula_19.html">aqui</a> </small>

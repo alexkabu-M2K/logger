@@ -1,6 +1,8 @@
 // Código para o script de Login - Aula 19 do Curso Full Stack 2025
 // Este script é responsável por gerenciar o login do usuário
 
+// Sequencia de login
+
 var login = document.getElementById("login");
 
 login.addEventListener("click", function() {
@@ -12,6 +14,12 @@ login.addEventListener("click", function() {
     // Obtém os dados do usuário e senha registrados no sessionStorage
     var userRegister = sessionStorage.getItem("user");
     var passwordRegister = sessionStorage.getItem("password");
+
+    // Verifica se os campos de entrada estão vazios
+    if (user === '' || password === '') {
+        alert("Todos os campos devem ser preenchidos.");
+        return;
+    }
 
     // Verifica se o usuário e a senha correspondem aos dados registrados
     if (user === userRegister && password === passwordRegister) {

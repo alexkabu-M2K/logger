@@ -9,6 +9,19 @@ function confirmarSenha() {
   sessionStorage.setItem("novaSenha", novaSenha);
   sessionStorage.setItem("confirmaSenha", confirmaSenha);
 
+
+// Verifica se os campos de entrada estão vazios
+  if (novaSenha === '' || confirmaSenha === '') {
+        mensagemErro.textContent = 'Todos os campos devem ser preenchidos.';
+        return;
+  }
+  // Verifica se a senha tem pelo menos 6 caracteres
+  if (novaSenha.length < 6) {
+      mensagemErro.textContent = 'A nova senha deve ter pelo menos 6 caracteres.';
+      return;
+  }
+  
+  // Verifica se as senhas são iguais
   if (novaSenha !== confirmaSenha) {
     alert("As senhas não coincidem!");
     return;
@@ -33,7 +46,8 @@ function confirmarSenha() {
 }
 
 function cancelarOperacao() {
-  window.location.href = "../index_aula_19.html"; // Redireciona para a página inicial
+  window.location.href = "../index_aula_19.html"; 
+  // Redireciona para a página inicial
 }
 document.getElementById('login').addEventListener('click', confirmarSenha);
 document.getElementById('cancel').addEventListener('click', cancelarOperacao);
