@@ -33,14 +33,14 @@ login.addEventListener("click", function() {
     alert("Usuário ou senha incorretos.");
 
     // Exibir a Senha
-function exibirSenha() {
-    var senhaInput = document.getElementById("passwordLogin");
-    if (senhaInput.type === "password") {
-        senhaInput.type = "text";
-    } else {
-        senhaInput.type = "password";
-    }
-}
+// function exibirSenha() {
+    // var senhaInput = document.getElementById("passwordLogin");
+    // if (senhaInput.type === "password") {
+       // senhaInput.type = "text";
+    // } else {
+        // senhaInput.type = "password";
+    // }
+//}
 
 // Limpa os campos de entrada
 document.getElementById("userLogin").value = "";
