@@ -55,3 +55,11 @@ form .smalls small {
   margin: 5px 0;
   font-size: 16px;
 }
+
+form button.mostrarsenha {
+  font-size: 15px;
+  color: #007;
+  background: none;
+  border: none;
+  cursor: pointer;
+    } 

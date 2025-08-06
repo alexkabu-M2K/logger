@@ -15,9 +15,12 @@
             <input type="text" id="userLogin" placeholder="Usuário" required>
             <input type="password" id="passwordLogin" placeholder="Senha" required>
         </div>
+        <button class="mostrarsenha" type="button" onclick="exibirSenha()">👁️ Exibir Senha</button>
+
         <button type="button" id="login"> Entrar</button>
+
         <button type="reset" id="cancel"> Limpar Campos</button>
-        <button class="sair" onclick="sairDoSistema()">Cancelar</button>
+        <button class="sair" onclick="cancelarOperacao()">Cancelar</button>
         <div class="error" id="errorMessage"></div>
         <div class="success" id="successMessage"></div>
 

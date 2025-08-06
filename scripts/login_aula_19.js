@@ -31,14 +31,25 @@ login.addEventListener("click", function() {
         return;
     } 
     alert("Usuário ou senha incorretos.");
-    
-    // Limpa os campos de entrada
-    document.getElementById("userLogin").value = "";
-    document.getElementById("passwordLogin").value = "";
+
+    // Exibir a Senha
+function exibirSenha() {
+    var senhaInput = document.getElementById("passwordLogin");
+    if (senhaInput.type === "password") {
+        senhaInput.type = "text";
+    } else {
+        senhaInput.type = "password";
+    }
+}
+
+// Limpa os campos de entrada
+document.getElementById("userLogin").value = "";
+document.getElementById("passwordLogin").value = "";
 });
 
-    // Função para sair do sistema
-function sairDoSistema() {
-  window.location.href = "../index_aula_19.html"; // Retorna ao menu principal
+    // Função para cancelar a operação de login
+function cancelarOperacao() {
+  window.location.href = "../index_aula_19.html"; 
+  // Retorna ao menu principal
   alert("Você saiu do System Logger.");
 }
