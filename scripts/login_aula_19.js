@@ -21,6 +21,13 @@ login.addEventListener("click", function() {
         return;
     }
 
+    // Verifica se o usuário e a senha estão registrados
+    if (userRegister === null || passwordRegister === null) {
+        alert("Usuário ou senha não registrados.");
+        return;
+    }
+
+    
     // Verifica se o usuário e a senha correspondem aos dados registrados
     if (user === userRegister && password === passwordRegister) {
         // Exibe uma mensagem de sucesso
@@ -32,22 +39,20 @@ login.addEventListener("click", function() {
     } 
     alert("Usuário ou senha incorretos.");
 
-    // Exibir a Senha
-// function exibirSenha() {
-    // var senhaInput = document.getElementById("passwordLogin");
-    // if (senhaInput.type === "password") {
-       // senhaInput.type = "text";
-    // } else {
-        // senhaInput.type = "password";
-    // }
-//}
-
-// Limpa os campos de entrada
-document.getElementById("userLogin").value = "";
-document.getElementById("passwordLogin").value = "";
 });
 
-    // Função para cancelar a operação de login
+// Exibir a Senha
+var showPassword = document.getElementById("showPassword");
+showPassword.addEventListener("click", function() {
+    var senhaInput = document.getElementById("passwordLogin");
+    if (senhaInput.type === "password") {
+        senhaInput.type = "text";
+    } else {
+        senhaInput.type = "password";
+    }
+});
+
+// Função para cancelar a operação de login
 function cancelarOperacao() {
   window.location.href = "../index_aula_19.html"; 
   // Retorna ao menu principal
