@@ -42,15 +42,15 @@ login.addEventListener("click", function() {
 });
 
 // Exibir a Senha
-var showPassword = document.getElementById("showPassword");
-showPassword.addEventListener("click", function() {
-    var senhaInput = document.getElementById("passwordLogin");
-    if (senhaInput.type === "password") {
-        senhaInput.type = "text";
-    } else {
-        senhaInput.type = "password";
-    }
-});
+// var showPassword = document.getElementById("showPassword");
+// showPassword.addEventListener("click", function() {
+//    var senhaInput = document.getElementById("passwordLogin");
+//    if (senhaInput.type === "password") {
+//        senhaInput.type = "text";
+//    } else {
+//        senhaInput.type = "password";
+//    }
+//});
 
 // Função para cancelar a operação de login
 function cancelarOperacao() {
