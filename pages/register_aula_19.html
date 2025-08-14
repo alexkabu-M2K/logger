@@ -8,11 +8,19 @@
 </head>
 <body>
     <form>
+        <!-- Inputs de Cadastro -->
         <div class="inputs">
             <input type="text" id="name" placeholder="Nome" required>
             <input type="text" id="userRegister" placeholder="Usuário" required>
             <input type="password" id="passwordRegister" placeholder="Senha" required>
         </div>
+            <!-- Opção para mostrar senha -->
+            <div class="show" id="show">
+                <input type="checkbox" id="show">
+                <label for="show">Mostrar Senha</label>
+            </div>
+            
+            <!-- Botões de Operação -->
             <button type="button" id="register"> Cadastrar</button>
             <button type="reset" class="Limpar">Limpar Campos</button>
             <button class="sair" onclick="sairDoSistema()">Cancelar</button>

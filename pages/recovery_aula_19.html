@@ -14,6 +14,8 @@
     <h2> Recuperação/Redefinição de Senha </h2>
     <p> Para alterar sua senha, preencha os campos abaixo: </p>
     
+
+    <!-- Formulário de Recuperação de Senha -->
     <form id="formSenha">
       <label for="usuario">Usuário:</label>
       <input type="text" id="usuario" name="usuario" required>
@@ -26,6 +28,13 @@
 
       <p id="mensagemErro" class="erro"></p>
 
+      <!-- Opção para mostrar senha -->
+      <div class="show" id="show">
+        <input type="checkbox" id="show">
+        <label for="show">Mostrar Senha</label>
+      </div>
+
+      <!-- Botões de Operação -->
       <div class="botoes">
         <button type="button" class="btn verde" id="login">Confirmar</button>
         <button type="reset" class="btn laranja">Limpar Campos</button>
@@ -34,6 +43,7 @@
     </form>
   </div>
 
+  <!-- Script para a recuperação de senha -->
   <script src="../scripts/recovery_aula_19.js"></script>
 </body>
 </html>

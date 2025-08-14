@@ -45,10 +45,23 @@ form {
   flex-direction: column;
 }
 
-label {
-  display: block;
-  margin-top: 15px;
-  margin-bottom: 5px;
+form .show {
+  max-width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  
+}
+
+form .show input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+}
+form .show label {
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+  
 }
 
 input[type="text"],

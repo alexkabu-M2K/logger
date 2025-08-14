@@ -19,11 +19,11 @@ register.addEventListener("click", function() {
         return;
     }
 
-    // Verifica se o usuário já está registrado
-    //if (sessionStorage.getItem("user") !== null) {
-    //    alert("Usuário já cadastrado.");
-    //    return;
-    // }
+    //Verifica se o usuário já está registrado
+    if (sessionStorage.getItem("user") !== null) {
+        alert("Usuário já cadastrado.");
+        return;
+    }
 
     // verifica se a senha tem pelo menos 6 caracteres
     if (password.length < 6) {
@@ -37,6 +37,23 @@ register.addEventListener("click", function() {
     // Redireciona para a página de login após o cadastro
     window.location.href = "../pages/login_aula_19.html";
 });
+
+    // Função para mostrar senha
+    var show = document.getElementById("show");
+    show.addEventListener("change", function() {
+
+      var passwordRegister = document.getElementById("passwordRegister");
+
+      var type = passwordRegister.getAttribute("type");
+
+      if(type === "password") {
+        passwordRegister.setAttribute("type", "text");
+      } else {
+        passwordRegister.setAttribute("type", "password");
+      }
+      show.classList.toggle("active");
+
+    });
 
     // Função para sair do sistema
 function sairDoSistema() {

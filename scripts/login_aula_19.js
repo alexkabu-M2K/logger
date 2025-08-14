@@ -42,15 +42,22 @@ login.addEventListener("click", function() {
 });
 
 // Exibir a Senha
-// var showPassword = document.getElementById("showPassword");
-// showPassword.addEventListener("click", function() {
-//    var senhaInput = document.getElementById("passwordLogin");
-//    if (senhaInput.type === "password") {
-//        senhaInput.type = "text";
-//    } else {
-//        senhaInput.type = "password";
-//    }
-//});
+
+var show = document.getElementById("show");
+show.addEventListener("change", function() {
+
+  var passwordLogin = document.getElementById("passwordLogin");
+
+  var type = passwordLogin.getAttribute("type");
+
+  if(type === "password") {
+    passwordLogin.setAttribute("type", "text");
+  } else {
+    passwordLogin.setAttribute("type", "password");
+  }
+  show.classList.toggle("active");
+
+});
 
 // Função para cancelar a operação de login
 function cancelarOperacao() {
@@ -58,3 +65,4 @@ function cancelarOperacao() {
   // Retorna ao menu principal
   alert("Você saiu do System Logger.");
 }
+
