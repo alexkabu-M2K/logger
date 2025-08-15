@@ -10,7 +10,7 @@ register.addEventListener("click", function() {
     var password = document.getElementById("passwordRegister").value;
 
     sessionStorage.setItem("name", name);
-    sessionStorage.setItem("user", user);
+    sessionStorage.setItem("usuario", user);
     sessionStorage.setItem("password", password);
 
     // Verifica se os campos de entrada estão vazios
@@ -20,7 +20,7 @@ register.addEventListener("click", function() {
     }
 
     //Verifica se o usuário já está registrado
-    if (sessionStorage.getItem("user") !== null) {
+    if (sessionStorage.getItem("usuario") !== null) {
         alert("Usuário já cadastrado.");
         return;
     }

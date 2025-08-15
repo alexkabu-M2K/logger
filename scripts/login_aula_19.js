@@ -12,7 +12,7 @@ login.addEventListener("click", function() {
     var password = document.getElementById("passwordLogin").value;
 
     // Obtém os dados do usuário e senha registrados no sessionStorage
-    var userRegister = sessionStorage.getItem("user");
+    var userRegister = sessionStorage.getItem("usuario");
     var passwordRegister = sessionStorage.getItem("password");
 
     // Verifica se os campos de entrada estão vazios
