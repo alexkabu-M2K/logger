@@ -3,17 +3,17 @@
 
 // Sequencia de login
 
-var login = document.getElementById("login");
+const login = document.getElementById("login");
 
 login.addEventListener("click", function() {
 
     // Obtém os valores dos campos de entrada de usuário e senha
-    var user = document.getElementById("userLogin").value;
-    var password = document.getElementById("passwordLogin").value;
+    const user = document.getElementById("userLogin").value;
+    const password = document.getElementById("passwordLogin").value;
 
     // Obtém os dados do usuário e senha registrados no sessionStorage
-    var userRegister = sessionStorage.getItem("usuario");
-    var passwordRegister = sessionStorage.getItem("password");
+    const userRegister = sessionStorage.getItem("usuario");
+    const passwordRegister = sessionStorage.getItem("password");
 
     // Verifica se os campos de entrada estão vazios
     if (user === '' || password === '') {
